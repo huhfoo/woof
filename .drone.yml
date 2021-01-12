@@ -11,7 +11,7 @@ steps:
 - name: publish
   image: plugins/docker
   settings:
-   repo: bybys123/woof
+   repo: huhfoo/woof
    tags: latest
    username:
     from_secret: docker_username
@@ -19,7 +19,7 @@ steps:
     from_secret: docker_password
 
 - name: deploy
-  image: sinlead/drone-kubectl
+  image: huhfoo/drone-kubectl
   settings:
    kubernetes_server:
     from_secret: k8s_server
