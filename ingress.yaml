@@ -17,5 +17,5 @@ spec:
       paths:
         - path: /
           backend:
-            serviceName: woof-web
+            serviceName: woof-web-svc
             servicePort: 80
