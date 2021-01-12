@@ -6,6 +6,7 @@ steps:
   image: golang:alpine
   commands:
     - "go build -o ./main"
+
 - name: publish
   image: plugins/docker
   settings:
@@ -15,15 +16,17 @@ steps:
     from_secret: docker_username
    password:
     from_secret: docker_password
-- name: deploy
-    image: sinlead/drone-kubectl
-    settings:
-      kubernetes_server:
-        from_secret: k8s_server
-      kubernetes_cert:
-        from_secret: k8s_cert
-      kubernetes_token:
-        from_secret: k8s_token
-    commands:
-      - kubectl create -f job_foo.yaml
-      - kubectl wait --for=condition=complete -f job_foo.yaml
+
+- name: publish
+  image: sinlead/drone-kubectl
+  settings:
+   kubernetes_server:
+    from_secret: k8s_server
+   kubernetes_cert:
+    from_secret: k8s_cert
+   kubernetes_token:
+    from_secret: k8s_token
+  commands:
+    - kubectl create -f job_foo.yaml
+    - kubectl wait --for=condition=complete -f job_foo.yaml   
+
