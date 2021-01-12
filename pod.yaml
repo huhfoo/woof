@@ -3,6 +3,8 @@ kind: Pod
 metadata:
   name: woof-web
   namespace: default
+  labels:
+    app: woof-web
 spec:
   containers:
     - name: web
