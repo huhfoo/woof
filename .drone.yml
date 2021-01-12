@@ -27,4 +27,3 @@ steps:
  commands:
    - kubectl apply -f pod.yml
    - kubectl apply -f service.yml
-   - kubectl apply -f ingress.yml
