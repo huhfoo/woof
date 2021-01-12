@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: woof-web
+spec:
+  containers:
+    - name: web
+      image: bybys123/woof
+      ports:
+        - name: web
+          containerPort: 80
+          protocol: TCP
