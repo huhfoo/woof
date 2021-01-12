@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: web
-      image: woof:latest
+      image: bybys123/woof
       ports:
         - name: web
           containerPort: 80
