@@ -27,6 +27,6 @@ steps:
    kubernetes_token:
     from_secret: k8s_token
   commands:
-    - kubectl get secret drone-ci-token-v9h55 -n drone -o jsonpath='{.data.ca\.crt}' && echo
+    - kubectl apply -f pod.yaml
 
 
