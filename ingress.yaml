@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: woof-ingress
@@ -6,6 +6,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/redirect-entry-point: https
 spec:
   tls:
     - secretName: woof-tls
@@ -15,7 +16,12 @@ spec:
   - host: badwoof.monkevicius.xyz
     http:
       paths:
-        - path: /
-          backend:
-            serviceName: woof-web-svc
-            servicePort: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: woof-web-svc
+            port:
+              number: 80
+
+            
