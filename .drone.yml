@@ -11,7 +11,7 @@ steps:
 - name: publish
   image: plugins/docker
   settings:
-   repo: bybys123/woof
+   repo: huhfoo   /woof
    tags: latest
    username:
     from_secret: docker_username
