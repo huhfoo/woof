@@ -2,8 +2,6 @@ name: Sveltefire Package
 
 on:
   push:
-    paths:
-      - '**.go'
 
 jobs:
   changed-files:
